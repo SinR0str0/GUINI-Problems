@@ -7,7 +7,7 @@ import requests
 # ===========================
 JUEZ_URL = "https://guinijuez.org"
 SECRET_KEY_FILE = "./Submitter/guini.secret_key"
-PROBLEM_ID_FILE = "./Submitter/idproblema.txt"
+PROBLEM_ID_FILE = "idproblema.txt"
 INPUTS_FOLDER = "inputs"
 TYPE_UPLOAD = "peque" # peque, mediano, grande
 

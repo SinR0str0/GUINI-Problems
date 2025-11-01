@@ -12,7 +12,7 @@ JUEZ_URL = "https://guinijuez.org"
 SECRET_KEY_FILE = "Submitter/guini.secret_key"
 PROBLEM_ID_FILE = os.path.join(script_dir, "idproblema.txt")
 INPUTS_FOLDER = inputs_dir
-TYPE_UPLOAD = "mediano" # peque, mediano, grande
+TYPE_UPLOAD = "grande" # peque, mediano, grande
 
 # ===========================
 # FUNCIONES AUXILIARES

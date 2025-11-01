@@ -8,13 +8,15 @@ def generate_inputs(num_files=50):
 
     
     for file_idx in range(1, num_files + 1):
-        t = random.randint(1, 10000)
+        t = random.randint(100, 1000)
         cases = []
         
         for _ in range(t):
-            n = random.randint(1, 200000)
-            k = random.randint(1, 200000)
-            A = [random.randint(0, 100) for _ in range(n)]
+            n = random.randint(1, 2000)
+            k = random.randint(1, n)
+            A=[]
+            for _ in range(n):
+                A.append(random.randint(0,100))
             cases.append((f"{n} {k}", A))
         
         # Guardar en inputs/sample_input_X.in
@@ -28,4 +30,5 @@ def generate_inputs(num_files=50):
         print(f"Generado: {filename}")
 
 if __name__ == "__main__":
+    print("Comenzando!")
     generate_inputs(num_files=51)

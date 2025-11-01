@@ -5,11 +5,14 @@ import requests
 # ===========================
 # CONFIGURACIÓN
 # ===========================
+script_dir = os.path.dirname(os.path.abspath(__file__))
+inputs_dir = os.path.join(script_dir, "inputs")
+
 JUEZ_URL = "https://guinijuez.org"
-SECRET_KEY_FILE = "./Submitter/guini.secret_key"
-PROBLEM_ID_FILE = "idproblema.txt"
-INPUTS_FOLDER = "inputs"
-TYPE_UPLOAD = "peque" # peque, mediano, grande
+SECRET_KEY_FILE = "Submitter/guini.secret_key"
+PROBLEM_ID_FILE = os.path.join(script_dir, "idproblema.txt")
+INPUTS_FOLDER = inputs_dir
+TYPE_UPLOAD = "mediano" # peque, mediano, grande
 
 # ===========================
 # FUNCIONES AUXILIARES

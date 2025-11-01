@@ -2,7 +2,9 @@ import random
 import os
 
 def generate_inputs(num_files=10):
-    os.makedirs("inputs", exist_ok=True)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    inputs_dir = os.path.join(script_dir, "inputs")
+    os.makedirs(inputs_dir, exist_ok=True)
     
     for file_idx in range(1, num_files + 1):
         t = random.randint(1001, 10000)
@@ -55,7 +57,7 @@ def generate_inputs(num_files=10):
             cases.append((entrada_str, actual_str, salida_str))
         
         # Guardar en archivo
-        filename = f"inputs/sample_input_{file_idx}.in"
+        filename = os.path.join(inputs_dir, f"sample_input_{file_idx}.in")
         with open(filename, 'w') as f:
             f.write(f"{t}\n")
             for entrada, actual, salida in cases:

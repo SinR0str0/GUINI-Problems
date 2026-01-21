@@ -40,23 +40,21 @@ def main():
         index = 1  # línea actual en el archivo
 
         for _ in range(t):
+            a1,a2,b1,b2=map(int,lines[index].split())
+    
+            ma = min(a1,a2)
+            mma = max(a1,a2)
+            mb = min(b1,b2)
+            mmb=max(b1,b2)
+            
+            
+            if((mb>ma and mb<mma) and (mmb>mma or mmb<ma)) or ((mmb>ma and mmb<mma) and (mb>mma or mb<ma)):
+                results.append("SI")
+            else:
+                results.append("NO")
             if index >= len(lines):
                 break
-            # Leer n y k
-            n, k = map(int, lines[index].split())
-            index += 1
-            # Leer lista a
-            a = list(map(int, lines[index].split()))
-            index += 1
-
-            # Validar que la lista tenga n elementos
-            if len(a) != n:
-                print(f"⚠️ Advertencia: n={n} pero se leyeron {len(a)} elementos en {in_path}")
-
-            # Tomar las k casas más caras
-            a.sort(reverse=True)
-            total = sum(a[:min(k,n)])
-            results.append(str(total))
+            
 
         # Guardar salida en la misma carpeta 'inputs'
         out_filename = os.path.basename(in_path).replace("sample_input_", "sample_output_").replace(".in", ".out")

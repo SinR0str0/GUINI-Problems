@@ -36,34 +36,25 @@ def main():
             continue
 
         t = int(lines[0])
-        results = []
-        index = 1  # línea actual en el archivo
-
+        index = 1
+        result = []
         for _ in range(t):
-            if index >= len(lines):
-                break
-            # Leer n y k
-            n, k = map(int, lines[index].split())
-            index += 1
-            # Leer lista a
-            a = list(map(int, lines[index].split()))
-            index += 1
-
-            # Validar que la lista tenga n elementos
-            if len(a) != n:
-                print(f"⚠️ Advertencia: n={n} pero se leyeron {len(a)} elementos en {in_path}")
-
-            # Tomar las k casas más caras
-            a.sort(reverse=True)
-            total = sum(a[:min(k,n)])
-            results.append(str(total))
+            l,r = map(int,lines[index].split())
+            index+=1
+            resta = r-l+1
+            len1 = l.bit_length()
+            len2 = r.bit_length()
+            unos = l.bit_count()
+            total = 1 if unos==1 else 0
+            total +=len2-len1
+            result.append(resta-total)
 
         # Guardar salida en la misma carpeta 'inputs'
         out_filename = os.path.basename(in_path).replace("sample_input_", "sample_output_").replace(".in", ".out")
         out_path = os.path.join(inputs_dir, out_filename)
         
         with open(out_path, 'w') as f:
-            f.write("\n".join(results) + "\n")
+            f.write("\n".join(map(str,result)) + "\n")
 
         print(f"✅ Generado: {out_path}")
 

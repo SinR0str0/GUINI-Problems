@@ -55,7 +55,7 @@ def main():
 
             # Tomar las k casas más caras
             a.sort(reverse=True)
-            total = sum(a[:min(k,n)])
+            total = sum(a[:k])
             results.append(str(total))
 
         # Guardar salida en la misma carpeta 'inputs'
